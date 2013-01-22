@@ -5,8 +5,12 @@
 	var Stopwait = function (element, options) {
 		this.options = $.extend({}, $.fn.stopwait.defaults, options)
 		this.$element = $(element)
-		this.$element.on('click.stopwait.data-api', {stopwaitObject: this}, this.activate)
-		this.$element.on('submit.stopwait.data-api', {stopwaitObject: this}, this.activate)
+
+		if( this.$element.is('form') ) {
+			this.$element.on('submit.stopwait.data-api', {stopwaitObject: this}, this.activate)
+		} else if( this.$element.is('input') ) {
+			this.$element.on('click.stopwait.data-api', {stopwaitObject: this}, this.activate)
+		}
 	}
 
 	Stopwait.prototype = {
@@ -21,7 +25,7 @@
 			$disableElements.attr("disabled","disabled")
 			$cursorWaitElement.css("cursor", "wait")
 
-			return false
+			return true
 		}
 	}
 
