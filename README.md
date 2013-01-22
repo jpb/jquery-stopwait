@@ -9,7 +9,7 @@ Simple jQuery plugin to stop a user from submitting a form more than once. Usefu
 
 ## Usage
 
-jQuery Stopwait can be attached to a form, button, or anchor and will trigger on submit and on click.
+jQuery Stopwait can be attached to a form, button, or anchor. It will trigger on submit for forms, and on click for inputs and anchors.
 
 You can specifiy the specific elements to disable with the `disableElements` option. This will default to `input[type="submit"]`. If empty, it will disable the element you attach jQuery Stopwait to.
 
